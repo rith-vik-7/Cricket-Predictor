@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Score Prediction</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <link href='https://fonts.googleapis.com/css?family=Tangerine' rel='stylesheet'>
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+
+        h1 {
+            font-family: 'Tangerine', serif;
+            font-size: 50px;
+            text-align: center;
+        }
+
+        h2 {
+            font-family: 'Tangerine', serif;
+            font-size: 37px;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body >
+
+    <h1 style="color:#200379;" allign="center"><b>Cricket Score Prediction</b></h1>
+    <div class="tabs">
+        <ul>
+            <li class="is-active">
+                <a>
+                    <span class="icon is-small"><i class="fas fa-home" aria-hidden="true"></i></span>
+                    <span onclick="window.location='/'">Home</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div >
+
+        <div class="register">
+            <form id="register" action="{{ url_for('predict') }}" method="post" s>
+
+                    <div class="select is-medium" align="center">
+                        <select name="format_type" >
+                        <option value="none">--- Format Type ---</option>
+                        <option value="odi">One Day Internationals</option>
+                        <option value="t20">Twenty20</option>
+                        <option value="ipl">Indian Premier League</option>
+                        <option value="all_stars">All stars</option>
+                        </select><br><br>
+                    </div>
+                <input class="input" type="text" name="runs" placeholder="Current Score"><br><br>
+
+                <input class="input" type="text" name="wickets" placeholder="Current Wickets"><br><br>
+
+                <input class="input" type="text" name="overs" placeholder="Current Overs"><br><br>
+
+                <input class="input" type="text" name="runs_in_prev_5" placeholder="Current Striker Score"><br><br>
+
+                <input class="input" type="text" name="wickets_in_prev_5"
+                    placeholder="Current Non-Striker Score"><br><br>
+
+                <input type="submit" class="button is-info" value="Predict Score">
+            </form>
+        </div>
+
+
+</body>
+<script>
+document.addEventListener('keydown', function() {
+  if (event.keyCode == 123) {
+    alert("This function has been disabled to prevent you from stealing my code!");
+    return false;
+  } else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) {
+    alert("This function has been disabled to prevent you from stealing my code!");
+    return false;
+  } else if (event.ctrlKey && event.keyCode == 85) {
+    alert("This function has been disabled to prevent you from stealing my code!");
+    return false;
+  }
+}, false);
+
+if (document.addEventListener) {
+  document.addEventListener('contextmenu', function(e) {
+    alert("This function has been disabled to prevent you from stealing my code!");
+    e.preventDefault();
+  }, false);
+} else {
+  document.attachEvent('oncontextmenu', function() {
+    alert("This function has been disabled to prevent you from stealing my code!");
+    window.event.returnValue = false;
+  });
+}
+</script>
+
+</html>
